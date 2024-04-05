@@ -9290,7 +9290,13 @@ az(a){if(A.aVt(a))return a
 return new A.aJe(new A.m8(t.Fy)).$1(a)},
 R(a,b){return a[b]},
 N1(a,b){return a[b]},
-t(a,b,c){return a[b].apply(a,c)},
+  t(a, b, c) {
+    if (!a || typeof a[b] !== 'function'|| !Array.isArray(c)) {
+      return;
+    }
+
+    // Appel sécurisé de la méthode
+    return a[b].apply(a, c);},
 b9e(a,b){return a[b]()},
 b9f(a,b,c){return a[b](c)},
 jP(a,b){var s,r
